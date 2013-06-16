@@ -1,8 +1,8 @@
 #!/usr/bin/env python
-# Sniffez v0.1
+# Sniffez v0.1a
 # Created by: Cristian 'Tmap' Mariolini
 # Mail: cristian [at] mariolini [dot] net
-# Twitter: @mariolinisc
+# Twitter: @mariolinic
 # Web: https://www.mariolini.net
 
 from scapy.all import *
