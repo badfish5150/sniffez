@@ -18,7 +18,7 @@ $ git clone https://github.com/tmap/sniffez.git
 FEATURES
 -----------
 
-	Not much to say right now,, the plan is to implement:
+Not much to say right now,, the plan is to implement:
   
   1. Sniffing to a postgresql/mysql database
   2. HTTP Referer stats
