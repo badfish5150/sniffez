@@ -1,4 +1,4 @@
-sniffez
+Sniffez
 =======
 
 A simple HTTP sniffer based on Scapy.
