@@ -17,7 +17,7 @@ $ git clone https://github.com/tmap/sniffez.git
 
 
 
-FEATURES
+FEATURES:
 -----------
 
 Not much to say right now,, the plan is to implement:
@@ -29,7 +29,7 @@ Not much to say right now,, the plan is to implement:
   
 	
 
-COPYRIGHT
+COPYRIGHT:
 -----------
 
 Licensed under the GPLv3: http://www.gnu.org/licenses/gpl-3.0.html
