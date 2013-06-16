@@ -9,7 +9,7 @@ from scapy.all import *
 import re
 import csv
 def sniffer():
-  x=0
+	x=0
 	value_regex = re.compile("GET.*\\\\r\\\\n\\\\r\\\\n")
 	out_file = csv.writer(open('file_out.csv', "wb"))
 	while True:
