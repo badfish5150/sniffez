@@ -2,7 +2,7 @@
 # Sniffez v0.1
 # Created by: Cristian 'Tmap' Mariolini
 # Mail: cristian [at] mariolini [dot] net
-# Twitter: @mariolinic
+# Twitter: @mariolinisc
 # Web: https://www.mariolini.net
 
 from scapy.all import *
