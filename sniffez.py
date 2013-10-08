@@ -24,7 +24,7 @@ def create_db():
 		);"""
 		cur.execute(create_db)
 	except sqlite3.Error as e:
-				print e.args[0]
+		print e.args[0]
 
 
 def sniffer():
