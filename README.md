@@ -1,7 +1,7 @@
 Sniffez
 =======
 
-A simple HTTP sniffer based on Scapy.
+A simple HTTP sniffer based on Scapy, used as a Honeypot in order to collect data/info oin botnets.
 
 
 INSTALL:
@@ -23,10 +23,7 @@ FEATURES:
 Not much to say right now,, the plan is to implement:
   
   1. Sniffing to a postgresql/mysql database
-  2. HTTP Referer stats
-  3. Attackers traceback
-  4. HTML5 web-gui
-  
+  2. Attackers traceback
 	
 
 COPYRIGHT:
