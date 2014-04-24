@@ -27,7 +27,7 @@ cur=con.cursor()
 def create_db():
 	global cur
 	try:
-		create_db="""CREATE TABLE IF NOT EXISTS sniffez_log(log_id INTEGER PRIMARY KEY DEFAULT (1), log_time INTEGER NOT NULL, log_data TEXT, useragent TEXT, accept TEXT, acceptlang TEXT, acceptenc TEXT, referer TEXT, cookie TEXT);"""
+		create_db="""CREATE TABLE IF NOT EXISTS sniffez_log(log_id INTEGER PRIMARY KEY DEFAULT (1), log_time INTEGER NOT NULL, log_data TEXT, useragent TEXT, accept TEXT, acceptlang TEXT, acceptenc TEXT, referer TEXT, cookie TEXT, src TEXT, dst TEXT);"""
 		cur.execute(create_db)
 	except sqlite3.Error as e:
 		print e.args[0]
@@ -40,6 +40,16 @@ def sniffer():
 		parse_get(a)
 	x=x+1
 def parse_get(a):
+	src_match=re.search(u'\<IP.*src\=(.*?) ', str(a))
+	if src_match:
+		src=src_match.group(1)
+	else:
+		src=None
+	dst_match=re.search(u'\<IP.*dst\=(.*?) ', str(a))
+	if dst_match:
+		dst=dst_match.group(1)
+	else:
+		dst=None
 	get_regex = re.compile("GET.*\\\\r\\\\n\\\\r\\\\n")
 	base_request = get_regex.findall(str(a))
 	request_str = [request_str.replace('\\r\\n','\n') for request_str in base_request]
@@ -75,9 +85,11 @@ def parse_get(a):
 		cookie=None
 	if request_str:
 		try:
-			cur.execute("""INSERT INTO sniffez_log (log_id, log_time, log_data,useragent, accept, acceptlang,acceptenc, referer, cookie) VALUES(NULL, ?, ?,?,?,?,?,?,?)""",[int(time.time()),request_str[0],useragent, accept, acceptlang, acceptenc, referer, cookie])
+			cur.execute("""INSERT INTO sniffez_log (log_id, log_time, log_data,useragent, accept, acceptlang,acceptenc, referer, cookie,src,dst) VALUES(NULL, ?, ?,?,?,?,?,?,?,?,?)""",[int(time.time()),request_str[0],useragent, accept, acceptlang, acceptenc, referer, cookie,src,dst])
 			con.commit()
 			print request_str[0]
+			print str(src)
+			print str(dst)
 		except sqlite3.Error as e:
 			print "An error occurred:", e.args[0]
 create_db()
