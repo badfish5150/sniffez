@@ -19,12 +19,13 @@ $ git clone https://github.com/tmap/sniffez.git
 
 FEATURES:
 -----------
-
-Not much to say right now,, the plan is to implement:
   
-  1. Sniffing to a postgresql/mysql database
+  1. Sniffing to a sqlite3
+  2. GET requests parsing
+TO DO:  
+  1. Logging into MySQL
   2. Attackers traceback
-	
+  3. POST Logging
 
 COPYRIGHT:
 -----------
