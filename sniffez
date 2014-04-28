@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 '''
 Python module required => Scapy(http://www.secdev.org/projects/scapy/doc/index.html)
@@ -14,6 +14,8 @@ __author__ = 'b4d_tR1p - (b4d_tR1p@me.com)' ; 'Tmap - (cristian@mariolini.net)'
 __version__ = '0.6'
 __licence__ = 'GPL v3'
 
+import logging
+logging.getLogger("scapy.runtime").setLevel(logging.ERROR)
 
 from scapy.all import *
 import re
@@ -92,5 +94,13 @@ def parse_get(a):
 			print str(dst)
 		except sqlite3.Error as e:
 			print "An error occurred:", e.args[0]
-create_db()
-sniffer()	
+
+def main():
+	try:
+		create_db()
+		sniffer()	
+	except KeyboardInterrupt:
+		sys.exit()
+
+if __name__ == '__main__':
+	main()
